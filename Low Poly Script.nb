@@ -1,0 +1,312 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13010,        303]
+NotebookOptionsPosition[     12413,        278]
+NotebookOutlinePosition[     12767,        294]
+CellTagsIndexPosition[     12724,        291]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"i", "=", 
+   RowBox[{
+   "Import", "[", "\"\</Users/rburke/Documents/\\ /tes1.png\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", "15"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y"}], "}"}], "=", 
+   RowBox[{"ImageDimensions", "[", "i", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pts", "=", 
+   RowBox[{"Reverse", "/@", 
+    RowBox[{"RandomChoice", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Flatten", "@", 
+        RowBox[{"ImageData", "@", 
+         RowBox[{"GradientFilter", "[", 
+          RowBox[{"i", ",", "2"}], "]"}]}]}], "\[Rule]", 
+       RowBox[{"Tuples", "@", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Range", "[", 
+           RowBox[{"y", ",", "1", ",", 
+            RowBox[{"-", "1"}]}], "]"}], ",", 
+          RowBox[{"Range", "[", "x", "]"}]}], "}"}]}]}], ",", "n"}], 
+     "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"pts", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{"pts", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "y"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "y"}], "}"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"m", "=", 
+   RowBox[{"DelaunayMesh", "@", "pts"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Graphics", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"col", "=", 
+         RowBox[{"RGBColor", "@", 
+          RowBox[{"ImageValue", "[", 
+           RowBox[{"i", ",", 
+            RowBox[{"Mean", "@@", "#"}]}], "]"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"EdgeForm", "@", "col"}], ",", "col", ",", "#"}], "}"}]}], 
+      "]"}], "&"}], "/@", 
+    RowBox[{"MeshPrimitives", "[", 
+     RowBox[{"m", ",", "2"}], "]"}]}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+   RowBox[{"Method", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<ShrinkWrap\>\"", "\[Rule]", "True"}], "}"}]}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.655537023321149*^9, 3.655537250460936*^9}, {
+   3.65553750405478*^9, 3.655537538735848*^9}, 3.6555376027881517`*^9, {
+   3.655537701285371*^9, 3.655537760984412*^9}, {3.655537815497315*^9, 
+   3.655537858515854*^9}, {3.655537922804632*^9, 3.655537924126381*^9}, 
+   3.655543715148716*^9, {3.6555437543037243`*^9, 3.655543763117895*^9}, {
+   3.658001465739045*^9, 3.658001466036278*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{1086., 1578.}, {0., 0.}, {670., 8.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{670., 8.}, {0., 0.}, {3834., 0.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{670., 8.}, {1180., 17.}, {1301., 606.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{1378., 319.}, {1180., 17.}, {1740., 355.}}]}, 
+   {RGBColor[0.396078431372549, 0.4117647058823529, 0.4588235294117647], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.396078431372549, 0.4117647058823529, 0.4588235294117647], Opacity[1.]}],
+     PolygonBox[{{670., 8.}, {3834., 0.}, {1180., 17.}}]}, 
+   {RGBColor[0.5098039215686274, 0.5176470588235295, 0.5294117647058824], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.5098039215686274, 0.5176470588235295, 0.5294117647058824], Opacity[
+    1.]}], PolygonBox[{{1378., 319.}, {1301., 606.}, {1180., 17.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{0., 2151.}, {880., 1864.}, {2302., 2106.}}]}, 
+   {RGBColor[
+    0.12156862745098039`, 0.12941176470588237`, 0.13725490196078433`], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.12156862745098039`, 0.12941176470588237`, 0.13725490196078433`], 
+    Opacity[1.]}], 
+    PolygonBox[{{880., 1864.}, {0., 2151.}, {1086., 1578.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{1915., 1515.}, {1086., 1578.}, {1301., 606.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{1086., 1578.}, {0., 2151.}, {0., 0.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{1740., 355.}, {1301., 606.}, {1378., 319.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{1779., 624.}, {1301., 606.}, {1740., 355.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{670., 8.}, {1301., 606.}, {1086., 1578.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{880., 1864.}, {1086., 1578.}, {1981., 1967.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{1180., 17.}, {2060., 390.}, {1740., 355.}}]}, 
+   {RGBColor[1., 1., 1.], Opacity[1.], EdgeForm[{RGBColor[1., 1., 1.], 
+    Opacity[1.]}], 
+    PolygonBox[{{1301., 606.}, {2025., 947.}, {1915., 1515.}}]}, 
+   {RGBColor[0.03137254901960784, 0.03529411764705882, 0.047058823529411764`],
+     Opacity[1.], EdgeForm[{RGBColor[
+    0.03137254901960784, 0.03529411764705882, 0.047058823529411764`], Opacity[
+    1.]}], PolygonBox[{{2025., 947.}, {1779., 624.}, {2060., 390.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{3834., 0.}, {2226., 1444.}, {2025., 947.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{3834., 0.}, {2060., 390.}, {1180., 17.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{2226., 1444.}, {3834., 0.}, {3834., 2151.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], PolygonBox[{{3834., 0.}, {2025., 947.}, {2060., 390.}}]}, 
+   {RGBColor[
+    0.047058823529411764`, 0.050980392156862744`, 0.07058823529411765], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.047058823529411764`, 0.050980392156862744`, 0.07058823529411765], 
+    Opacity[1.]}], PolygonBox[{{1779., 624.}, {1740., 355.}, {2060., 390.}}]}, 
+   {RGBColor[0.49019607843137253`, 0.49411764705882355`, 0.5058823529411764], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.49019607843137253`, 0.49411764705882355`, 0.5058823529411764], Opacity[
+    1.]}], PolygonBox[{{1961., 1462.}, {2025., 947.}, {2226., 1444.}}]}, 
+   {RGBColor[0.4392156862745098, 0.4666666666666667, 0.5019607843137255], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.4392156862745098, 0.4666666666666667, 0.5019607843137255], Opacity[
+    1.]}], PolygonBox[{{1961., 1462.}, {2226., 1444.}, {1915., 1515.}}]}, 
+   {RGBColor[0.058823529411764705`, 0.06666666666666667, 0.09019607843137255],
+     Opacity[1.], EdgeForm[{RGBColor[
+    0.058823529411764705`, 0.06666666666666667, 0.09019607843137255], Opacity[
+    1.]}], PolygonBox[{{1961., 1462.}, {1915., 1515.}, {2025., 947.}}]}, 
+   {RGBColor[0.15294117647058825`, 0.16470588235294117`, 0.1803921568627451], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.15294117647058825`, 0.16470588235294117`, 0.1803921568627451], Opacity[
+    1.]}], PolygonBox[{{1981., 1967.}, {1915., 1515.}, {2226., 1444.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{2226., 1444.}, {2302., 2106.}, {1981., 1967.}}]}, 
+   {RGBColor[0.6509803921568628, 0.6549019607843137, 0.6627450980392157], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.6509803921568628, 0.6549019607843137, 0.6627450980392157], Opacity[
+    1.]}], PolygonBox[{{2302., 2106.}, {3834., 2151.}, {0., 2151.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{1981., 1967.}, {2302., 2106.}, {880., 1864.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{2226., 1444.}, {3834., 2151.}, {2302., 2106.}}]}, 
+   {RGBColor[0., 0., 0.], Opacity[1.], EdgeForm[{RGBColor[0., 0., 0.], 
+    Opacity[1.]}], 
+    PolygonBox[{{1981., 1967.}, {1086., 1578.}, {1915., 1515.}}]}, 
+   {RGBColor[0.34901960784313724`, 0.36470588235294116`, 0.3843137254901961], 
+    Opacity[1.], EdgeForm[{RGBColor[
+    0.34901960784313724`, 0.36470588235294116`, 0.3843137254901961], Opacity[
+    1.]}], PolygonBox[{{1301., 606.}, {1779., 624.}, {2025., 947.}}]}},
+  ImageSize->Large,
+  Method->{"ShrinkWrap" -> True}]], "Output",
+ CellChangeTimes->{{3.6555371179711237`*^9, 3.655537285167734*^9}, 
+   3.65553732152632*^9, {3.655537520176302*^9, 3.6555376278729677`*^9}, {
+   3.655537716265872*^9, 3.6555377741812696`*^9}, {3.655537832619318*^9, 
+   3.65553788656151*^9}, {3.655537918987355*^9, 3.655537963580078*^9}, {
+   3.655543771194501*^9, 3.655543900769949*^9}, {3.655543970547504*^9, 
+   3.655544003853586*^9}, {3.658001329128563*^9, 3.658001379006962*^9}, {
+   3.658001471912318*^9, 3.6580014940103903`*^9}, {3.658001544271318*^9, 
+   3.658001642452425*^9}, {3.65800227162293*^9, 3.658002446278501*^9}, {
+   3.658002512783431*^9, 3.6580025440340223`*^9}, {3.658002597777911*^9, 
+   3.6580026102695208`*^9}, {3.658002651357334*^9, 3.658002757181367*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{"\"\<LPImg_\>\"", "<>", 
+    RowBox[{"IntegerString", "[", 
+     RowBox[{"IntegerPart", "[", 
+      RowBox[{
+       RowBox[{"RandomReal", "[", "]"}], "*", "1000000"}], "]"}], "]"}], 
+    "<>", "\"\<.png\>\""}], ",", 
+   RowBox[{"Show", "[", 
+    RowBox[{"%", ",", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"ImageDimensions", "[", "i", "]"}]}], ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "Full"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.655537326148549*^9, 3.655537361961784*^9}, 
+   3.6555376649246807`*^9, 3.655537892965481*^9, {3.655543784078233*^9, 
+   3.655543800511594*^9}, {3.65554384191514*^9, 3.655543842584606*^9}, {
+   3.655544007443433*^9, 3.655544008326709*^9}, {3.658001501717732*^9, 
+   3.658001502287438*^9}, {3.6580016493877573`*^9, 3.658001649994619*^9}, {
+   3.658001933490725*^9, 3.6580019496952677`*^9}, {3.658002233954217*^9, 
+   3.6580022649128447`*^9}}],
+
+Cell[BoxData["\<\"LPImg_370396.png\"\>"], "Output",
+ CellChangeTimes->{
+  3.655537366407194*^9, {3.6555376584136467`*^9, 3.655537669660719*^9}, 
+   3.6555378998068438`*^9, {3.655543789859524*^9, 3.6555438035335093`*^9}, 
+   3.655543845392228*^9, 3.655544011938307*^9, 3.6580015082168093`*^9, 
+   3.658001654362115*^9, 3.6580019534134083`*^9, 3.658002241235787*^9, 
+   3.658002398610074*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"DirectoryName", "[", 
+   RowBox[{"AbsoluteFileName", "[", "\"\<LPImg_145292.png\>\"", "]"}], "]"}], 
+  "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"DirectoryName", "[", 
+   RowBox[{"AbsoluteFileName", "[", "\"\<test2a.png\>\"", "]"}], "]"}], 
+  "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"DirectoryName", "[", 
+   RowBox[{"AbsoluteFileName", "[", "\"\<test1a.png\>\"", "]"}], "]"}], 
+  "]"}]], "Input",
+ NumberMarks->False],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", 
+  RowBox[{"DirectoryName", "[", 
+   RowBox[{"AbsoluteFileName", "[", "\"\<test1a.png\>\"", "]"}], "]"}], 
+  "]"}]], "Input",
+ NumberMarks->False]
+},
+WindowSize->{808, 651},
+WindowMargins->{{Automatic, 215}, {Automatic, 5}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (June 27, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 2680, 77, 182, "Input"],
+Cell[3263, 101, 6973, 113, 374, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10273, 219, 961, 20, 46, "Input"],
+Cell[11237, 241, 390, 6, 28, "Output"]
+}, Open  ]],
+Cell[11642, 250, 194, 5, 28, "Input"],
+Cell[11839, 257, 188, 5, 28, "Input"],
+Cell[12030, 264, 188, 5, 28, "Input"],
+Cell[12221, 271, 188, 5, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
